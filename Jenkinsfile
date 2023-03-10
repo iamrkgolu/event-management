@@ -19,8 +19,8 @@ pipeline{
     stage("Consolidated Result"){
       steps{
         input("Do you want to test result?")
-        junit"**/target/surefire-reports/Test-*.xml"
-        archive "target/*.jar"
+        junit'**/target/surefire-reports/Test-*.xml'
+        archive 'target/*.jar'
       }
     }
     stage('Run') {
