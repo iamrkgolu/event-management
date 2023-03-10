@@ -16,5 +16,17 @@ pipeline{
       bat "mvn package"
     }
     }
+    stage("Consolidated Result"){
+      steps{
+        input("Do you want to test result?")
+        junit"**/target/surefire-reports/Test-*.xml"
+        archive "target/*.jar"
+      }
+    }
+    stage('Run') {
+        steps{
+      bat "mvn spring-boot:run"
+    }
+    }
   }
 }
